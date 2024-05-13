@@ -1,25 +1,26 @@
-nums = input("Enter the numbers, please: ")
+def calculations(num1, num2, op):
+    if op == "+":
+        result = num1 + num2
+    elif op == "-":
+        result = num1 - num2
+    elif op == "*":
+        result = num1 * num2
+    elif op == "/":
+        result = num1 / num2
+    elif op == "^":
+        result = num1 ** num2
+    else:
+        raise ValueError('Invalid Operator!')
+    return int(result)
 
-listed = nums.split()
-
-#print(listed)
-
-for i in range(len(listed)):
-    listed[i] = int(listed[i])
-
-print(f"These are the integers: \n {listed}")
-op = input(f"What operation do you want to do? (+, -, *, /) ")
-
-a = int(listed[0])
-b = int(listed[1])
-
-if op == "+":
-    result = a + b
-elif op == "-":
-    result = a - b
-elif op == "*":
-    result = a * b
-else:
-    result = a / b
-    
-print(f"The result of your equation, {a} {op} {b} is {result}.")
+calcs = True
+while calcs is True:
+    num1 = int(input("Please, enter your first number: "))
+    op = input('Which operation are you using? (+, -, *, /, ^) \n')
+    num2 = int(input("Please, enter your second number: "))
+    print(num1,op,num2)
+    result = calculations(num1, num2, op)
+    print("=", result)
+    playMore = input("Would you like to do more calculations? (y/n): ")
+    if playMore == 'n':
+        calcs = False
